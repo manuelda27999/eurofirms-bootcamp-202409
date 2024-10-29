@@ -1,14 +1,17 @@
 {
     "compilerOptions": {
-        "target": "es2015",
-        "lib": [
+        "target": "es2015", //Define a que versión de js se debe de compilar el código
+        "lib": [ //Especifica la biblioteca de js que ts debe incluir en el proyecto
             "es2015",
             "dom"
         ],
-        "module": "commonjs",
-        "outDir": "./dist"
+        "module": "CommonJS", //Define el sistema de módulos que usará ts para compilar el código
+        "outDir": "./dist", //Define la carpeta donde se va a almacenar js(se recomienda una carpeta separada)
+        "jsx": "react-jsx" //habilita el soporte para jsx
     },
     "include": [
-        "./src/**/*"
+        "./src/**/*" //Define los archivos o diretorios que ts debe incluir en la compilación
+        ,
+        "dist/main.jsx"
     ]
 }
