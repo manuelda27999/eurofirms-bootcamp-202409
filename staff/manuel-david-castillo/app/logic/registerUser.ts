@@ -1,0 +1,45 @@
+import { User } from "./getUserName";
+
+export default function registerUser(
+  name: string,
+  email: string,
+  username: string,
+  password: string
+) {
+  if (typeof name !== "string") throw new Error("invalid name");
+  if (name.length < 1) throw new Error("invalid name length");
+
+  if (typeof email !== "string") throw new Error("invalid email");
+  if (email.length < 6) throw new Error("invalid email length");
+  if (!email.includes("@")) throw new Error("invalid email format");
+  if (!email.includes(".")) throw new Error("invalid email format");
+  const indexOfAt: number = email.indexOf("@");
+  const indexOfDot: number = email.indexOf(".");
+  if (indexOfDot < indexOfAt) throw new Error("invalid email format");
+
+  if (typeof username !== "string") throw new Error("invalid username");
+  if (username.length < 4) throw new Error("invalid username lenght");
+
+  if (typeof password !== "string") throw new Error("invalid password");
+  if (password.length < 8) throw new Error("invalid password length");
+
+  const users: User[] = JSON.parse(localStorage.users);
+
+  let user: User | undefined = users.find(function (user) {
+    return user.email === email || user.username === username;
+  });
+
+  if (user !== undefined) throw new Error("user already exists");
+
+  user = {
+    id: uuid(),
+    name: name,
+    email: email,
+    username: username,
+    passwowrd: password,
+  };
+
+  users.push(user)
+
+  localStorage.users = JSON.stringify(users)
+}
