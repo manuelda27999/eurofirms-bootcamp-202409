@@ -1,19 +1,7 @@
 {
-  "compilerOptions": {
-    "target": "ES6", //Define a que versión de js se debe de compilar el código
-    "lib": ["es2015", "dom"], 
-    "module": "CommonJS", //Define el sistema de módulos que usará ts para compilar el código
-    "outDir": "./dist", //Define la carpeta donde se va a almacenar js(se recomienda una carpeta separada)
-    "jsx": "react-jsx", //habilita el soporte para jsx
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true
-  },
-  "include": [
-    "logic/**/*", //Define los archivos o diretorios que ts debe incluir en la compilación
-    "utils/**/*",
-    "view/**/*",
-    "App.tsx",
-    "main.tsx"
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
   ]
 }
